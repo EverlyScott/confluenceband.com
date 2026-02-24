@@ -1,0 +1,27 @@
+.link {
+  display: inline;
+}
+
+.container {
+  display: inline-flex;
+  width: 275px;
+  flex-direction: column;
+  background-color: #3a205a;
+  border-radius: 10px;
+  align-items: center;
+  padding: 14px 0;
+  text-align: center;
+  height: 100%;
+
+  p {
+    margin: 0.5rem 0;
+    color: #ffffff;
+    text-decoration: underline;
+  }
+}
+
+.videoThumb {
+  width: 250px;
+  height: auto;
+  border-radius: 10px;
+}

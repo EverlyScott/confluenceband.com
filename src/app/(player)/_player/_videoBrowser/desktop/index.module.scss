@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  width: min(1500px, 100vw);
+  width: 100%;
+  margin: 0;
+}
+
+.seasonList {
+  background-color: #3a205a;
+  overflow-y: auto;
+  position: fixed;
+  width: 350px;
+  height: 100vh;
+  top: 0;
+  left: 0;
+}
+
+.videoList {
+  margin-left: 350px;
+  padding: 1rem 1rem calc(77px + 1rem) 1rem;
+  overflow-y: visible;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}

@@ -1,0 +1,67 @@
+.performanceContainer {
+  background-color: rgba(255, 255, 255, 0.2);
+  background-size: cover;
+  background-position: center center;
+  border-radius: 10px;
+  transition: transform 0.2s;
+  margin: 0.5rem;
+
+  &.hasLink {
+    &:hover {
+      transform: scale(102%);
+    }
+  }
+}
+
+.ticketLink {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.noTicketLink {
+  color: inherit;
+  text-decoration: none;
+  cursor: default;
+}
+
+.performance {
+  padding: 2rem;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  backdrop-filter: brightness(75%) blur(2px);
+  text-align: left;
+  display: flex;
+  gap: 1rem;
+}
+
+.buyTickets {
+  align-self: flex-end;
+  color: inherit;
+  text-decoration: none;
+  padding: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+
+.performanceName {
+  margin: 0;
+}
+
+.performanceTime {
+  font-size: 1rem;
+  margin: 0;
+  margin-top: -0.25rem;
+}
+
+.performanceAddress {
+  margin: 0;
+  margin-top: 1rem;
+  font-size: 1rem;
+}
+
+.performanceInfo {
+  margin: 0;
+  font-size: 1rem;
+}

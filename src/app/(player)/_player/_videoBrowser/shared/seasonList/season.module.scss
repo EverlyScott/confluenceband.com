@@ -1,0 +1,52 @@
+.details {
+  scroll-snap-align: start;
+}
+
+.summary {
+  text-align: left;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  margin-left: 2rem;
+  user-select: none;
+
+  h2 {
+    display: inline;
+  }
+
+  &:before {
+    content: "";
+    border-width: 0.4rem;
+    border-style: solid;
+    border-color: transparent transparent transparent #ffffff;
+    position: absolute;
+    top: 1.95em;
+    left: -1rem;
+    transform: rotate(0);
+    transform-origin: 0.2rem 50%;
+    transition: 0.25s transform ease;
+  }
+}
+
+.details[data-open] > .summary:before {
+  transform: rotate(90deg);
+}
+
+.content {
+  transition:
+    height 0.25s ease,
+    width 0.25s ease;
+  margin-top: -1.5rem;
+  overflow: hidden;
+}
+
+.finalContent {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-top: 1rem;
+  width: 100%;
+  height: fit-content;
+  justify-content: center;
+}

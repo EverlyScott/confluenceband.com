@@ -16,10 +16,23 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/icons-material": "^7.1.0",
+    "@mui/material": "^7.0.2",
+    "@react-navigation/stack": "^7.3.2",
     "@t3-oss/env-nextjs": "^0.12.0",
+    "@vidstack/react": "^1.12.13",
+    "classnames": "^2.5.1",
+    "moment": "^2.30.1",
     "next": "^15.2.3",
+    "pocketbase": "^0.26.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-native-gesture-handler": "^2.25.0",
+    "react-native-web": "^0.20.0",
+    "react-scrubber": "^2.1.0",
+    "sass": "^1.87.0",
     "zod": "^3.24.2"
   },
   "devDependencies": {

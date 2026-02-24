@@ -1,0 +1,11 @@
+.player {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 350px;
+  z-index: 20;
+
+  &.mobile {
+    left: 0;
+  }
+}
