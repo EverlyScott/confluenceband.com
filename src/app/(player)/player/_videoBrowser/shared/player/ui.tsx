@@ -432,19 +432,17 @@ const PlayerUI: React.FC<IProps> = (props) => {
             {isFullscreen ? (
               <></>
             ) : (
-              <>
-                <Tooltip title={playerExpanded ? "Shrink" : "Expand"}>
-                  <IconButton onClick={toggleExpanded}>
-                    {playerExpanded ? <ExpandMore /> : <ExpandLess />}
-                  </IconButton>
-                </Tooltip>
-                <Tooltip title="Close Player">
-                  <IconButton onClick={closePlayer}>
-                    <Cancel />
-                  </IconButton>
-                </Tooltip>
-              </>
+              <Tooltip title={playerExpanded ? "Shrink" : "Expand"}>
+                <IconButton onClick={toggleExpanded}>
+                  {playerExpanded ? <ExpandMore /> : <ExpandLess />}
+                </IconButton>
+              </Tooltip>
             )}
+            <Tooltip title="Close Player">
+              <IconButton onClick={closePlayer}>
+                <Cancel />
+              </IconButton>
+            </Tooltip>
           </div>
         </div>
       </div>
