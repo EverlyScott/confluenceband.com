@@ -1,4 +1,4 @@
-import type { ISeason } from "@/app/(player)/_player/_videoBrowser";
+import type { ISeason } from "@/app/(player)/player/_videoBrowser";
 import LoadingPerformances from "./loadingPerformances";
 import Performance from "./performance";
 import { useMemo } from "react";

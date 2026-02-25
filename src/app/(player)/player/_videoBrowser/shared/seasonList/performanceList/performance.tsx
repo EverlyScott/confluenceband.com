@@ -1,4 +1,4 @@
-import type { FullPerformance } from "@/app/(player)/_player/_videoBrowser";
+import type { FullPerformance } from "@/app/(player)/player/_videoBrowser";
 import useVideoBrowserState from "../../../context";
 import { useMemo, type MouseEventHandler } from "react";
 import Link from "next/link";

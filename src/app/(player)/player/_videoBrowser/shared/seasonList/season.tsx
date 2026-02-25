@@ -1,4 +1,4 @@
-import type { ISeason } from "@/app/(player)/_player/_videoBrowser";
+import type { ISeason } from "@/app/(player)/player/_videoBrowser";
 import { useEffect, useMemo, useRef, useState } from "react";
 import useVideoBrowserState from "../../context";
 import styles from "./season.module.scss";

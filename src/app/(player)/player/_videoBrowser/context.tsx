@@ -2,8 +2,8 @@
 
 import { createContext, useContext, useState, type MouseEvent } from "react";
 import type { FullPerformance, ISeason } from ".";
-import { fetchSeason } from "../page";
 import type { FullVideo } from "./shared/videoList";
+import fetchSeason from "../_fetchSeason";
 
 interface VideoBrowserContext {
   expanded: number[];
