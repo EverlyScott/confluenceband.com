@@ -72,8 +72,15 @@ export interface ConfluenceVideos {
 export interface ConfluenceMembers {
   id: string;
   name: string;
+  /**
+   * Value `8`-`13`
+   *
+   * `8` = Unknown
+   *
+   * `13` = Graduated
+   */
   grade: number;
-  instrument: string;
+  instrument: string[];
   headshot: string;
 }
 

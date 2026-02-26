@@ -31,14 +31,14 @@ const BandMembers: React.FC = () => {
         .collection("confluenceMembers")
         .getFullList({
           sort: "name",
-          filter: `seasons.id ?= ${currentSeason}`,
+          filter: `seasons.id ?= "${currentSeason}"`,
         });
 
       const members: ConfluenceMembers[] = [];
 
       for (const instrument of instrumentSort) {
         const membersWithInstrument = unsortedMembers.filter(
-          (member) => member.instrument === instrument,
+          (member) => member.instrument[0] === instrument,
         );
 
         members.push(...membersWithInstrument);
@@ -73,7 +73,7 @@ const BandMembers: React.FC = () => {
           >
             <div className={styles.memberInfo}>
               <h3>{member.name}</h3>
-              <p>{member.instrument}</p>
+              <p>{member.instrument.join("/")}</p>
             </div>
           </div>
         );
