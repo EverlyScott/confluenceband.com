@@ -16,7 +16,7 @@ const Video: React.FC<IProps> = ({ view, video, selected }) => {
   const { setPlayingVideo } = useVideoBrowserState();
   const useCoverArt = useMemo(
     () =>
-      (view === "queue" && video.expand?.performance?.hasCoverArt) ||
+      (view === "queue" && video.expand?.performance?.hasCoverArt) ??
       video.noVideo,
     [video, view],
   );
