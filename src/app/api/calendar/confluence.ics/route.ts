@@ -7,7 +7,7 @@ import { createEvents } from "ics";
 import moment from "moment";
 import { NextResponse } from "next/server";
 
-export const GET = async (req: Request) => {
+export const GET = async (_req: Request) => {
   const performances = await db
     .collection("confluencePerformances")
     .getFullList<Expand<ConfluencePerformances, { venue: ConfluenceVenues }>>({

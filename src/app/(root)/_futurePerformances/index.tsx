@@ -9,7 +9,6 @@ import classNames from "classnames";
 import moment from "moment";
 import FuturePerformance from "./futurePerformance";
 import { useSearchParams } from "next/navigation";
-import Link from "next/link";
 
 const FuturePerformances: React.FC = () => {
   const [loadingFuturePerformances, setLoadingFuturePerformances] =
