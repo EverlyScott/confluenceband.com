@@ -19,17 +19,11 @@ export const GET = async (_req: Request) => {
       const date = moment.utc(performance.date);
 
       return {
+        uid: performance.id,
         title: `Confluence @ ${performance.name}`,
         description: `Confluence performance located at ${performance.expand?.venue?.name}\nTickets: ${performance.ticketInfo}`,
         location: performance.expand?.venue?.address || undefined,
-        start: [
-          date.get("year"),
-          date.get("month") + 1,
-          date.get("day") + 1,
-          date.get("hour"),
-          date.get("minute"),
-        ],
-        startInputType: "utc",
+        start: date.toISOString(false).replaceAll("-", "").replaceAll(":", ""),
         duration: { hours: 2 },
         url: performance.ticketLink || undefined,
       };
