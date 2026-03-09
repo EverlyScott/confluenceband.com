@@ -4,7 +4,7 @@ import styles from "./styles.module.scss";
 interface IProps {
   performanceName: string;
   formattedPerformanceTime: string;
-  performanceAddress?: string;
+  venueAddress?: string;
   ticketInfo: string;
   miscInfo?: string;
   ticketLink?: string;
@@ -14,7 +14,7 @@ interface IProps {
 const FuturePerformance: React.FC<IProps> = ({
   performanceName,
   formattedPerformanceTime,
-  performanceAddress,
+  venueAddress,
   ticketInfo,
   miscInfo,
   ticketLink,
@@ -44,7 +44,7 @@ const FuturePerformance: React.FC<IProps> = ({
           <div style={{ flexGrow: 1 }}>
             <h3 className={styles.performanceName}>{performanceName}</h3>
             <p className={styles.performanceTime}>{formattedPerformanceTime}</p>
-            <p className={styles.performanceAddress}>{performanceAddress}</p>
+            <p className={styles.performanceAddress}>{venueAddress}</p>
             <p className={styles.performanceInfo}>
               {ticketInfo}
               {miscInfo ? `; ${miscInfo}` : ""}

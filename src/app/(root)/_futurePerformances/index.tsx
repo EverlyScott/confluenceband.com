@@ -9,6 +9,7 @@ import classNames from "classnames";
 import moment from "moment";
 import FuturePerformance from "./futurePerformance";
 import { useSearchParams } from "next/navigation";
+import Link from "next/link";
 
 const FuturePerformances: React.FC = () => {
   const [loadingFuturePerformances, setLoadingFuturePerformances] =
@@ -44,7 +45,7 @@ const FuturePerformances: React.FC = () => {
               key={i}
               performanceName="&nbsp;"
               formattedPerformanceTime="&nbsp;"
-              performanceAddress="&nbsp;"
+              venueAddress="&nbsp;"
               ticketInfo="&nbsp;"
             />
           );
@@ -71,6 +72,12 @@ const FuturePerformances: React.FC = () => {
   return (
     <>
       <h2>Future Performances</h2>
+      <a
+        className={styles.addToCalendar}
+        href="webcal://confluenceband.com/api/calendar/confluence.ics"
+      >
+        Add to Calendar
+      </a>
       {futurePerformances.map((performance) => {
         return (
           <FuturePerformance
@@ -79,7 +86,7 @@ const FuturePerformances: React.FC = () => {
             formattedPerformanceTime={moment(performance.date).format(
               "MMMM Do YYYY h:mm A",
             )}
-            performanceAddress={performance.expand?.venue?.address}
+            venueAddress={performance.expand?.venue?.address}
             ticketInfo={performance.ticketInfo}
             miscInfo={performance.miscInfo}
             ticketLink={performance.ticketLink}
