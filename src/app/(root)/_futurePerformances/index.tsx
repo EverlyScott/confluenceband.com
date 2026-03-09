@@ -72,12 +72,12 @@ const FuturePerformances: React.FC = () => {
   return (
     <>
       <h2>Future Performances</h2>
-      <a
+      {/* <a
         className={styles.addToCalendar}
         href="webcal://confluenceband.com/api/calendar/confluence.ics"
       >
         Add to Calendar
-      </a>
+      </a> */}
       {futurePerformances.map((performance) => {
         return (
           <FuturePerformance

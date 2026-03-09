@@ -34,6 +34,9 @@
   border-radius: 10px;
   position: relative;
   display: flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   &[data-new="true"]:after {
     content: "New";
@@ -52,7 +55,7 @@
 
 .img {
   width: 100px;
-  height: auto;
+  height: 56px;
   border-radius: 10px;
 }
 
