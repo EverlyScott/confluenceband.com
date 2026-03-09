@@ -3,7 +3,7 @@ import db, {
   type ConfluenceVenues,
   type Expand,
 } from "@/db";
-import ics from "ics";
+import { createEvents } from "ics";
 import moment from "moment";
 import { NextResponse } from "next/server";
 
@@ -14,7 +14,7 @@ export const GET = async (req: Request) => {
       expand: "venue",
     });
 
-  const { error, value } = ics.createEvents(
+  const { error, value } = createEvents(
     performances.map((performance) => {
       const date = moment.utc(performance.date);
 
