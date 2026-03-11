@@ -2,6 +2,7 @@ import type { ISeason } from "@/app/(player)/player/_videoBrowser";
 import LoadingPerformances from "./loadingPerformances";
 import Performance from "./performance";
 import { useMemo } from "react";
+import useVideoBrowserState from "../../../context";
 
 interface IProps {
   isLatest: boolean;
@@ -9,6 +10,9 @@ interface IProps {
 }
 
 const PerformanceList: React.FC<IProps> = ({ isLatest, season }) => {
+  const { seasonPerformanceCount } = useVideoBrowserState();
+  console.log(seasonPerformanceCount[season.season.toString()]);
+
   const filteredPerformances = useMemo(
     () =>
       season.performances?.filter?.(
@@ -18,9 +22,11 @@ const PerformanceList: React.FC<IProps> = ({ isLatest, season }) => {
   );
 
   if (season.performances === null) {
-    return new Array(10).fill("").map((_, i) => {
-      return <LoadingPerformances key={i} />;
-    });
+    return new Array(seasonPerformanceCount[season.season.toString()])
+      .fill("")
+      .map((_, i) => {
+        return <LoadingPerformances key={i} />;
+      });
   }
 
   if ((filteredPerformances ?? []).length === 0) {

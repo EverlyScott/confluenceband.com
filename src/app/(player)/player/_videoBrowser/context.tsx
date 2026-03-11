@@ -4,10 +4,12 @@ import { createContext, useContext, useState, type MouseEvent } from "react";
 import type { FullPerformance, ISeason } from ".";
 import type { FullVideo } from "./shared/videoList";
 import fetchSeason from "../_fetchSeason";
+import type { SeasonPerformanceCount } from "@/db";
 
 interface VideoBrowserContext {
   expanded: number[];
   seasons: ISeason[];
+  seasonPerformanceCount: SeasonPerformanceCount;
   selectedPerformance: FullPerformance | undefined;
   setSelectedPerformance: React.Dispatch<
     React.SetStateAction<FullPerformance | undefined>
@@ -41,11 +43,18 @@ interface ProviderProps {
   payload: ISeason[];
   preExpandedTabs: number[];
   initialSelectedPerformance?: FullPerformance;
+  seasonPerformanceCount: SeasonPerformanceCount;
 }
 
 export const VideoBrowserProvider: React.FC<
   React.PropsWithChildren<ProviderProps>
-> = ({ payload, preExpandedTabs, initialSelectedPerformance, children }) => {
+> = ({
+  payload,
+  preExpandedTabs,
+  initialSelectedPerformance,
+  seasonPerformanceCount,
+  children,
+}) => {
   const [expanded, setExpanded] =
     useState<VideoBrowserContext["expanded"]>(preExpandedTabs);
   const [seasons, setSeasons] =
@@ -116,6 +125,7 @@ export const VideoBrowserProvider: React.FC<
       value={{
         expanded,
         seasons,
+        seasonPerformanceCount,
         selectedPerformance,
         setSelectedPerformance,
         handleSetSelectedPerformance,

@@ -93,6 +93,8 @@ export interface ConfluenceSongs {
   originalCopyright: string;
 }
 
+export type SeasonPerformanceCount = Record<string, number>;
+
 class TypedPocketBase<T = Record<string, NewRecordModel>> extends PocketBase {
   collection<M extends Extract<keyof T, string>>(
     idOrName: M,

@@ -3,6 +3,7 @@ import db, {
   type ConfluencePerformances,
   type ConfluenceSeasons,
   type Expand,
+  type SeasonPerformanceCount,
 } from "@/db";
 import { VideoBrowserProvider } from "./_videoBrowser/context";
 import VideoBrowser, {
@@ -21,6 +22,11 @@ const PlayerPage: NextPage<IProps> = async ({ searchParams }) => {
   const seasonsList = await db
     .collection("confluenceSeasons")
     .getFullList({ sort: "-season" });
+
+  const seasonPerformanceCount: SeasonPerformanceCount = await db.send(
+    `/api/hooks/seasons/performances/count`,
+    {},
+  );
 
   if (!seasonsList[0]) {
     throw new Error("Latest season does not exist!");
@@ -78,6 +84,7 @@ const PlayerPage: NextPage<IProps> = async ({ searchParams }) => {
         .filter((season) => season.performances !== null)
         .map((season) => season.season)}
       initialSelectedPerformance={selectedPerformancePayload}
+      seasonPerformanceCount={seasonPerformanceCount}
     >
       <VideoBrowser />
     </VideoBrowserProvider>
