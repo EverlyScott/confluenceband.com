@@ -82,9 +82,12 @@ const FuturePerformances: React.FC = () => {
           <FuturePerformance
             key={performance.id}
             performanceName={performance.name}
-            formattedPerformanceTime={moment(performance.date).format(
-              "MMMM Do YYYY h:mm A",
-            )}
+            formattedPerformanceTime={`${moment
+              .utc(performance.date)
+              .local()
+              .format(
+                "MMMM Do YYYY h:mm A",
+              )}${performance.length ? `-${moment.utc(performance.date).local().add(performance.length, "hours").format("h:mm A")}` : ""}`}
             venueAddress={performance.expand?.venue?.address}
             ticketInfo={performance.ticketInfo}
             miscInfo={performance.miscInfo}

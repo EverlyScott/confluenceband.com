@@ -43,6 +43,7 @@ export interface ConfluencePerformances {
   venue: string;
   season: string;
   date: string;
+  length?: number;
   ticketInfo: string;
   miscInfo?: string;
   ticketLink?: string;

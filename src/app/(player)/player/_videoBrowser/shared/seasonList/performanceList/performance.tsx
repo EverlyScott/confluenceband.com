@@ -64,7 +64,7 @@ const Performance: React.FC<IProps> = ({ isLatest, performance }) => {
           ) : (
             <></>
           )}
-          <p>{moment.utc(performance.date).format("MMM Do, YYYY")}</p>
+          <p>{moment.utc(performance.date).local().format("MMM Do, YYYY")}</p>
         </div>
       </div>
     </Link>

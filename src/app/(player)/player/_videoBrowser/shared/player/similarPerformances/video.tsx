@@ -66,7 +66,7 @@ const Video: React.FC<IProps> = ({ view, video, selected }) => {
           <></>
         )}
         {view === "performances" ? (
-          <p>{moment.utc(performance.date).format("MMM Do, YYYY")}</p>
+          <p>{moment.utc(performance.date).local().format("MMM Do, YYYY")}</p>
         ) : (
           <></>
         )}

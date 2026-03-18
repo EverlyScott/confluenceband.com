@@ -37,7 +37,9 @@ const FullPerformanceVideo: React.FC<IProps> = ({ video }) => {
         <div className={styles.flex}>
           <div className={styles.text}>
             <h2>{performance.name}</h2>
-            <h3>{moment.utc(performance.date).format("MMM Do, YYYY")}</h3>
+            <h3>
+              {moment.utc(performance.date).local().format("MMM Do, YYYY")}
+            </h3>
           </div>
           <button onClick={handlePlayVideo} className={styles.watch}>
             ▶ Full Performance

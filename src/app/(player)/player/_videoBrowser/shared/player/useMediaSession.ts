@@ -67,7 +67,7 @@ const useMediaSession = ({ player, onNext, onPrevious }: Params) => {
       navigator.mediaSession.metadata = new MediaMetadata({
         title: `${playingVideo.expand.song.title}${playingVideo.suffix ? ` (${playingVideo.suffix})` : ""}`,
         artist: "The La Crosse Confluence",
-        album: `${playingVideo.expand.performance.name} ${moment.utc(playingVideo.expand.performance.date).format("YYYY")}`,
+        album: `${playingVideo.expand.performance.name} ${moment.utc(playingVideo.expand.performance.date).local().format("YYYY")}`,
         artwork: [
           {
             src: `${playingVideo.rootUrl}cover.avif`,

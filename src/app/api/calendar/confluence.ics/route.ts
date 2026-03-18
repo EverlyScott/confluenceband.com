@@ -16,7 +16,7 @@ export const GET = async (_req: Request) => {
 
   const { error, value } = createEvents(
     performances.map((performance) => {
-      const date = moment.utc(performance.date);
+      const date = moment.utc(performance.date).local();
 
       return {
         uid: performance.id,
@@ -24,7 +24,7 @@ export const GET = async (_req: Request) => {
         description: `Confluence performance located at ${performance.expand?.venue?.name}\nTickets: ${performance.ticketInfo}`,
         location: performance.expand?.venue?.address || undefined,
         start: date.toISOString(false).replaceAll("-", "").replaceAll(":", ""),
-        duration: { hours: 2 },
+        duration: { hours: performance.length ?? 2 },
         url: performance.ticketLink || undefined,
       };
     }),

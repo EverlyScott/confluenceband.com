@@ -64,7 +64,7 @@ const SongInfoDialog: React.FC<IProps> = ({ isOpen, setIsOpen }) => {
               }}
             >
               {performanceInfo.name}{" "}
-              {moment.utc(performanceInfo.date).format("YYYY")}
+              {moment.utc(performanceInfo.date).local().format("YYYY")}
             </div>
           </div>
         )}
