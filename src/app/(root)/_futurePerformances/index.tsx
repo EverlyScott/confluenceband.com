@@ -46,6 +46,7 @@ const FuturePerformances: React.FC = () => {
               formattedPerformanceTime="&nbsp;"
               venueAddress="&nbsp;"
               ticketInfo="&nbsp;"
+              ticketsFree={false}
             />
           );
         })}
@@ -92,6 +93,7 @@ const FuturePerformances: React.FC = () => {
             ticketInfo={performance.ticketInfo}
             miscInfo={performance.miscInfo}
             ticketLink={performance.ticketLink}
+            ticketsFree={performance.ticketsFree}
             venueImageUrl={
               performance.expand?.venue?.venueImage
                 ? `url("${db.files.getURL(performance.expand.venue, performance.expand.venue.venueImage)}")`

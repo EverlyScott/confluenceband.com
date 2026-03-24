@@ -47,6 +47,7 @@ export interface ConfluencePerformances {
   ticketInfo: string;
   miscInfo?: string;
   ticketLink?: string;
+  ticketsFree: boolean;
   performanceNote?: string;
   hasCoverArt: boolean;
 }

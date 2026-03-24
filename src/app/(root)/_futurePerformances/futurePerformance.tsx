@@ -9,6 +9,7 @@ interface IProps {
   miscInfo?: string;
   ticketLink?: string;
   venueImageUrl?: string;
+  ticketsFree: boolean;
 }
 
 const FuturePerformance: React.FC<IProps> = ({
@@ -19,6 +20,7 @@ const FuturePerformance: React.FC<IProps> = ({
   miscInfo,
   ticketLink,
   venueImageUrl,
+  ticketsFree,
 }) => {
   return (
     <div
@@ -52,7 +54,7 @@ const FuturePerformance: React.FC<IProps> = ({
           </div>
           {ticketLink ? (
             <a className={styles.buyTickets} href={ticketLink} target="_blank">
-              Buy Tickets
+              {ticketsFree ? "More Info" : "Buy Tickets"}
             </a>
           ) : (
             <></>
