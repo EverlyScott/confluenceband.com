@@ -58,6 +58,13 @@ const VideoList: React.FC = () => {
           return <Video video={fullVideo} key={fullVideo.id} />;
         })}
       </div>
+      {selectedPerformance.coverArtCredit === "" ? (
+        <></>
+      ) : (
+        <p style={{ textAlign: "center", fontSize: "1rem" }}>
+          Cover Art Taken By {selectedPerformance.coverArtCredit}
+        </p>
+      )}
     </div>
   );
 };

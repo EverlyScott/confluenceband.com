@@ -110,17 +110,6 @@ const FuturePerformances: React.FC = () => {
 };
 
 const WatchPriorPerformances: React.FC = () => {
-  const searchParams = useSearchParams();
-
-  const isBeta = useMemo(
-    () => searchParams.get("beta") === "true",
-    [searchParams],
-  );
-
-  if (!isBeta) {
-    return <></>;
-  }
-
   return (
     <div className={classNames(styles.performanceContainer, styles.hasLink)}>
       <a href="/player" className={styles.ticketLink}>

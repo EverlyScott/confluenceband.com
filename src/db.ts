@@ -50,6 +50,7 @@ export interface ConfluencePerformances {
   ticketsFree: boolean;
   performanceNote?: string;
   hasCoverArt: boolean;
+  coverArtCredit?: string;
 }
 
 export interface ConfluenceVenues {
