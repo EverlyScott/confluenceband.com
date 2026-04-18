@@ -19,14 +19,12 @@ const FuturePerformances: React.FC = () => {
 
   useEffect(() => {
     (async () => {
-      const currentDate = Date.now();
-
       const performances = await db
         .collection("confluencePerformances")
         .getFullList({ expand: "venue", sort: "date" });
 
-      const futurePerformances = performances.filter(
-        (performance) => new Date(performance.date).getTime() > currentDate,
+      const futurePerformances = performances.filter((performance) =>
+        moment.utc().isSameOrBefore(moment.utc(performance.date), "day"),
       );
 
       setFuturePerformances(futurePerformances);
