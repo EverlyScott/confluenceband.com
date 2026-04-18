@@ -36,12 +36,12 @@ const Home: NextPage = () => {
           </div>
         </div>
 
-        <div className={styles.contentContainer}>
+        {/* <div className={styles.contentContainer}>
           <div className={styles.content}>
             <h2>Band Members</h2>
             <BandMembers />
           </div>
-        </div>
+        </div> */}
       </div>
     </main>
   );
