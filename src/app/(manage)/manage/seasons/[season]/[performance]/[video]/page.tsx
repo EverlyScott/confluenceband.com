@@ -5,7 +5,6 @@ import Breadcrumbs from "../../../../_components/breadcrumbs";
 import MenuBar from "../../../../_components/menuBar";
 import db, {
   type ConfluenceVideos,
-  type ConfluencePerformances,
   type ConfluenceSongs,
   type Expand,
 } from "@/db";

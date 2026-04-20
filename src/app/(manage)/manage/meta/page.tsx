@@ -27,12 +27,6 @@ const columns: GridColDef[] = [
   },
 ];
 
-export const metaRowDescriptions = {
-  currentSeason: "The current confluence season.",
-  instrumentsort:
-    "The order of instruments whenever the site is listing different instruments.",
-};
-
 const Meta: NextPage = () => {
   const [data, setData] = useState<ConfluenceMeta[]>();
   const [selectedRow, setSelectedRow] = useState<ConfluenceMeta>();

@@ -4,6 +4,8 @@ interface IProps {
   data: ConfluenceMeta;
 }
 
-const InstrumentSort: React.FC<IProps> = ({ data }) => {};
+const InstrumentSort: React.FC<IProps> = () => {
+  return <></>;
+};
 
 export default InstrumentSort;

@@ -3,12 +3,11 @@
 import type { ConfluencePerformances, ConfluenceVenues } from "@/db";
 import db from "@/db";
 import type { Expand } from "@/db";
-import { Suspense, useEffect, useMemo, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import styles from "./styles.module.scss";
 import classNames from "classnames";
 import moment from "moment";
 import FuturePerformance from "./futurePerformance";
-import { useSearchParams } from "next/navigation";
 
 const FuturePerformances: React.FC = () => {
   const [loadingFuturePerformances, setLoadingFuturePerformances] =

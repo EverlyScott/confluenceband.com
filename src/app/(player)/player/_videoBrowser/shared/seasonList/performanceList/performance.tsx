@@ -16,10 +16,7 @@ const Performance: React.FC<IProps> = ({ isLatest, performance }) => {
   const { selectedPerformance, handleSetSelectedPerformance } =
     useVideoBrowserState();
   const selected = useMemo(() => {
-    return (
-      selectedPerformance !== undefined &&
-      selectedPerformance.id === performance.id
-    );
+    return selectedPerformance?.id === performance.id;
   }, [selectedPerformance, performance]);
 
   if (performance.videos.length === 0) {

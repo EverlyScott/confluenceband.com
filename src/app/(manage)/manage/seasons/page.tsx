@@ -3,7 +3,6 @@
 import db, { type ConfluenceSeasons } from "@/db";
 import {
   DataGrid,
-  type GridSortModel,
   type GridColDef,
   type GridEventListener,
 } from "@mui/x-data-grid";

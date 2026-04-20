@@ -79,7 +79,7 @@ export const VideoBrowserProvider: React.FC<
         expanded.push(seasonId);
 
         const season = seasons.find((season) => season.season === seasonId);
-        if (season && season.performances === null) {
+        if (season?.performances === null) {
           fetchAndUpdateSeason(seasonId);
         }
       } else {

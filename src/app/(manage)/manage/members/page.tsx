@@ -91,8 +91,8 @@ const columns: GridColDef[] = [
 
 const Meta: NextPage = () => {
   const [data, setData] = useState<ConfluenceMembers[]>();
-  const [selectedRow, setSelectedRow] = useState<ConfluenceMembers>();
-  const [showEditDialog, setShowEditDialog] = useState(false);
+  const [, setSelectedRow] = useState<ConfluenceMembers>();
+  const [, setShowEditDialog] = useState(false);
 
   useEffect(() => {
     (async () => {
