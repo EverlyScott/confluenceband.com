@@ -24,6 +24,17 @@ export interface Collections {
   confluenceMembers: ConfluenceMembers;
   confluenceMeta: ConfluenceMeta;
   confluenceSongs: ConfluenceSongs;
+  _superusers: RecordModel;
+  users: Users;
+}
+
+export interface Users {
+  id: string;
+  email: string;
+  emailVisibility: boolean;
+  verified: boolean;
+  clerkId: string;
+  role: "owner" | "director" | "unassigned";
 }
 
 export interface ConfluenceMeta {

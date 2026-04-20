@@ -1,9 +1,16 @@
+import Link from "next/link";
 import BandMembers from "./_bandMembers";
 import FuturePerformances from "./_futurePerformances";
 import styles from "./styles.module.scss";
 import type { NextPage } from "next";
+import { Show, SignIn, SignInButton } from "@clerk/nextjs";
+import { Button } from "@mui/material";
+import { headers } from "next/headers";
 
-const Home: NextPage = () => {
+const Home: NextPage = async () => {
+  const headersList = await headers();
+  const host = headersList.get("host");
+
   return (
     <main className={styles.main}>
       <div className={styles.cover}>
@@ -42,6 +49,25 @@ const Home: NextPage = () => {
             <BandMembers />
           </div>
         </div> */}
+
+        <div
+          style={{
+            backgroundColor: "rgba(51, 28, 80, 0.5)",
+            display: "flex",
+            alignItems: "center",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              margin: "1rem",
+              justifyContent: "flex-end",
+              width: "100%",
+            }}
+          >
+            <Button href="/manage">Manage</Button>
+          </div>
+        </div>
       </div>
     </main>
   );

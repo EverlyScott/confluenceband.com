@@ -8,6 +8,9 @@ export const env = createEnv({
    */
   server: {
     NODE_ENV: z.enum(["development", "test", "production"]),
+    POCKETBASE_SERVER_EMAIL: z.string(),
+    POCKETBASE_SERVER_PASSWORD: z.string(),
+    CLERK_SECRET_KEY: z.string(),
   },
 
   /**
@@ -18,6 +21,7 @@ export const env = createEnv({
   client: {
     // NEXT_PUBLIC_CLIENTVAR: z.string(),
     NEXT_PUBLIC_POCKETBASE_URL: z.string().url(),
+    NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: z.string(),
   },
 
   /**
@@ -27,6 +31,11 @@ export const env = createEnv({
   runtimeEnv: {
     NODE_ENV: process.env.NODE_ENV,
     NEXT_PUBLIC_POCKETBASE_URL: process.env.NEXT_PUBLIC_POCKETBASE_URL,
+    POCKETBASE_SERVER_EMAIL: process.env.POCKETBASE_SERVER_EMAIL,
+    POCKETBASE_SERVER_PASSWORD: process.env.POCKETBASE_SERVER_PASSWORD,
+    NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY:
+      process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY,
+    CLERK_SECRET_KEY: process.env.CLERK_SECRET_KEY,
   },
   /**
    * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially
