@@ -17,21 +17,19 @@ import {
   type MouseEventHandler,
 } from "react";
 import { CircularProgress, IconButton, Tooltip } from "@mui/material";
-import {
-  Cancel,
-  Download,
-  ExpandLess,
-  ExpandMore,
-  Fullscreen,
-  FullscreenExit,
-  Pause,
-  PlayArrow,
-  SkipNext,
-  SkipPrevious,
-  VolumeDown,
-  VolumeOff,
-  VolumeUp,
-} from "@mui/icons-material";
+import Cancel from "@mui/icons-material/Cancel";
+import Download from "@mui/icons-material/Download";
+import ExpandLess from "@mui/icons-material/ExpandLess";
+import ExpandMore from "@mui/icons-material/ExpandMore";
+import Fullscreen from "@mui/icons-material/Fullscreen";
+import FullscreenExit from "@mui/icons-material/FullscreenExit";
+import Pause from "@mui/icons-material/Pause";
+import PlayArrow from "@mui/icons-material/PlayArrow";
+import SkipNext from "@mui/icons-material/SkipNext";
+import SkipPrevious from "@mui/icons-material/SkipPrevious";
+import VolumeDown from "@mui/icons-material/VolumeDown";
+import VolumeOff from "@mui/icons-material/VolumeOff";
+import VolumeUp from "@mui/icons-material/VolumeUp";
 import ExpandedView from "./expandedView";
 import classNames from "classnames";
 import SongInfoDialog from "./songInfoDialog";

@@ -1,7 +1,7 @@
 import { type RecordModel } from "pocketbase";
 import { env } from "@/env";
 import { auth, currentUser } from "@clerk/nextjs/server";
-import db, { type Users } from "@/db";
+import db from "@/db";
 
 export async function GET() {
   try {
@@ -45,7 +45,7 @@ export async function GET() {
         role: "unassigned",
         password: env.POCKETBASE_SERVER_PASSWORD,
         passwordConfirm: env.POCKETBASE_SERVER_PASSWORD,
-      } as Users & { password: string; passwordConfirm: string });
+      });
     }
 
     // 4. Log in as that user (IMPORTANT)

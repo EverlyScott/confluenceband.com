@@ -1,3 +1,5 @@
+"use client";
+
 import type { ConfluenceMeta } from "@/db";
 import Dialog from "@mui/material/Dialog";
 import DialogContent from "@mui/material/DialogContent";

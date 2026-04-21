@@ -1,12 +1,12 @@
-import type { Metadata, NextPage } from "next";
+import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import { metadata as rootMetadata } from "@/app/(root)/layout";
 import { ClerkProvider } from "@clerk/nextjs";
-import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
-import { CssBaseline, ThemeProvider } from "@mui/material";
-import theme from "./theme";
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v16-appRouter";
+import { CssBaseline } from "@mui/material";
 import clerkAppearance from "./clerkApperance";
 import PbAuth from "./pbAuth";
+import MuiProvider from "./theme";
 
 export const metadata: Metadata = {
   title: "Manage | The La Crosse Confluence",
@@ -21,7 +21,7 @@ const roboto = Roboto({
   variable: "--font-roboto",
 });
 
-const Layout: NextPage<React.PropsWithChildren> = ({ children }) => {
+const Layout = ({ children }: LayoutProps<"/">) => {
   return (
     <html lang="en" className={roboto.variable}>
       <head>
@@ -29,13 +29,13 @@ const Layout: NextPage<React.PropsWithChildren> = ({ children }) => {
       </head>
       <body>
         <AppRouterCacheProvider>
-          <ThemeProvider theme={theme}>
+          <MuiProvider>
             <ClerkProvider appearance={clerkAppearance}>
               <PbAuth />
               <CssBaseline />
               {children}
             </ClerkProvider>
-          </ThemeProvider>
+          </MuiProvider>
         </AppRouterCacheProvider>
       </body>
     </html>

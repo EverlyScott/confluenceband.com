@@ -1,7 +1,7 @@
 import { MediaProvider, type MediaPlayerInstance } from "@vidstack/react";
 import { type IProps as UIProps } from "./ui";
 import { IconButton, ToggleButtonGroup, ToggleButton } from "@mui/material";
-import { ExpandMore } from "@mui/icons-material";
+import ExpandMore from "@mui/icons-material/ExpandMore";
 import styles from "./expandedView.module.scss";
 import classNames from "classnames";
 import useVideoBrowserState from "../../context";

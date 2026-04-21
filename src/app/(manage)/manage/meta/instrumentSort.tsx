@@ -1,3 +1,5 @@
+"use client";
+
 import type { ConfluenceMeta } from "@/db";
 
 interface IProps {

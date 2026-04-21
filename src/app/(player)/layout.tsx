@@ -17,7 +17,7 @@ const nunito = Nunito({
   subsets: ["latin"],
 });
 
-const Layout: NextPage<React.PropsWithChildren> = ({ children }) => {
+const Layout = ({ children }: LayoutProps<"/">) => {
   return (
     <html lang="en">
       <head>

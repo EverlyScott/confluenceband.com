@@ -1,3 +1,5 @@
+"use client";
+
 import type { NextPage } from "next";
 import MenuBar from "./_components/menuBar";
 import TabBar from "./_components/tabBar";

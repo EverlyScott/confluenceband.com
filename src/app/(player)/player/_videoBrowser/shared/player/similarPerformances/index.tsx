@@ -1,4 +1,5 @@
-import { ChevronLeft, ChevronRight } from "@mui/icons-material";
+import ChevronLeft from "@mui/icons-material/ChevronLeft";
+import ChevronRight from "@mui/icons-material/ChevronRight";
 import {
   Divider,
   IconButton,
@@ -104,10 +105,8 @@ const SimilarPerformances: React.FC<IProps> = ({ player }) => {
             exclusive
             onChange={handleViewModeChange}
           >
-            <ToggleButton value={"performances" as ViewMode}>
-              Performances
-            </ToggleButton>
-            <ToggleButton value={"queue" as ViewMode}>Queue</ToggleButton>
+            <ToggleButton value="performances">Performances</ToggleButton>
+            <ToggleButton value="queue">Queue</ToggleButton>
           </ToggleButtonGroup>
         </div>
         <Divider className={styles.divider} />

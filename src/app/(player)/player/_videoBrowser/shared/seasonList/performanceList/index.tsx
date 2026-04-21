@@ -11,7 +11,6 @@ interface IProps {
 
 const PerformanceList: React.FC<IProps> = ({ isLatest, season }) => {
   const { seasonPerformanceCount } = useVideoBrowserState();
-  console.log(seasonPerformanceCount[season.season.toString()]);
 
   const filteredPerformances = useMemo(
     () =>

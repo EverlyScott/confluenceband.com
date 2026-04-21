@@ -1,3 +1,5 @@
+"use client";
+
 import { UserButton } from "@clerk/nextjs";
 import { AppBar, Toolbar, Typography } from "@mui/material";
 

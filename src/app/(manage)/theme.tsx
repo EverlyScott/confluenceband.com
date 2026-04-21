@@ -1,7 +1,9 @@
 "use client";
-import { createTheme } from "@mui/material/styles";
 
-const theme = createTheme({
+import { createTheme } from "@mui/material/styles";
+import { ThemeProvider } from "@mui/material";
+
+export const theme = createTheme({
   cssVariables: true,
   typography: {
     fontFamily: "var(--font-roboto)",
@@ -91,4 +93,8 @@ const theme = createTheme({
   },
 });
 
-export default theme;
+const MuiProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
+  return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
+};
+
+export default MuiProvider;

@@ -77,8 +77,6 @@ const useMediaSession = ({ player, onNext, onPrevious }: Params) => {
       });
     };
 
-    console.log(player?.paused, Number.isFinite(player?.duration));
-
     if (!player?.paused && Number.isFinite(player?.duration)) {
       applyMetadata();
     } else {
