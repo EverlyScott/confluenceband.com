@@ -5,7 +5,8 @@ import { usePathname, useRouter } from "next/navigation";
 
 const tabRoutes = {
   "/manage": "Overview",
-  "/manage/seasons": "Performances",
+  "/manage/seasons": "Seasons",
+  "/manage/performances": "All Performances",
   "/manage/meta": "Metadata",
   "/manage/members": "Members",
 } as const;

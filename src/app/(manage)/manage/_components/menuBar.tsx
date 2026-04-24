@@ -31,7 +31,7 @@ const MenuBar: React.FC<React.PropsWithChildren> = ({ children }) => {
           <UserButton />
         </Toolbar>
       </AppBar>
-      <div>
+      <div style={{ margin: "0 1rem 1rem 1rem" }}>
         <Toolbar />
         {children}
       </div>

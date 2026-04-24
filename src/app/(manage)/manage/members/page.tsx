@@ -122,7 +122,6 @@ const Meta: NextPage = () => {
         onRowDoubleClick={handleEditCell}
         onRowClick={handleSelectCell}
         loading={data === undefined}
-        sx={{ margin: "1rem" }}
         initialState={{
           columns: {
             columnVisibilityModel: {

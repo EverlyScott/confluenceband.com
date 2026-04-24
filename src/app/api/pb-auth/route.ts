@@ -39,8 +39,7 @@ export async function GET() {
 
       user = await db.collection("users").create({
         clerkId: userId,
-        email,
-        emailVisibility: false,
+        clerkEmail: email,
         verified: true,
         role: "unassigned",
         password: env.POCKETBASE_SERVER_PASSWORD,
@@ -51,7 +50,7 @@ export async function GET() {
     // 4. Log in as that user (IMPORTANT)
     const authData = await db
       .collection("users")
-      .authWithPassword(user.email, env.POCKETBASE_SERVER_PASSWORD);
+      .authWithPassword(user.clerkId, env.POCKETBASE_SERVER_PASSWORD);
 
     // 5. Return PB token
     return Response.json({ token: authData.token, user: authData.record });

@@ -58,7 +58,6 @@ const Meta: NextPage = () => {
         onRowDoubleClick={handleEditCell}
         onRowClick={handleSelectCell}
         loading={data === undefined}
-        sx={{ margin: "1rem" }}
       />
       <EditDialog
         open={showEditDialog}

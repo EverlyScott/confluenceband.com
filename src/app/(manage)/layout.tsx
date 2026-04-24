@@ -7,6 +7,7 @@ import { CssBaseline } from "@mui/material";
 import clerkAppearance from "./clerkApperance";
 import PbAuth from "./pbAuth";
 import MuiProvider from "./theme";
+import LocalizationProvider from "./localizationProvider";
 
 export const metadata: Metadata = {
   title: "Manage | The La Crosse Confluence",
@@ -31,9 +32,11 @@ const Layout = ({ children }: LayoutProps<"/">) => {
         <AppRouterCacheProvider>
           <MuiProvider>
             <ClerkProvider appearance={clerkAppearance}>
-              <PbAuth />
-              <CssBaseline />
-              {children}
+              <LocalizationProvider>
+                <PbAuth />
+                <CssBaseline />
+                {children}
+              </LocalizationProvider>
             </ClerkProvider>
           </MuiProvider>
         </AppRouterCacheProvider>

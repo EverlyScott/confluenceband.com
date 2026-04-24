@@ -63,7 +63,6 @@ const Seasons: NextPage = () => {
             },
           },
         }}
-        sx={{ margin: "1rem" }}
       />
     </MenuBar>
   );
