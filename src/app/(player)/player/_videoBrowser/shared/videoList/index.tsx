@@ -1,4 +1,4 @@
-import type { ConfluenceSongs, ConfluenceVideos, Expand } from "@/db";
+import { type ConfluenceSongs, type ConfluenceVideos, type Expand } from "@/db";
 import type { FullPerformance } from "../..";
 import useVideoBrowserState from "../../context";
 import styles from "./index.module.scss";

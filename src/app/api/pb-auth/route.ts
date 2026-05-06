@@ -7,8 +7,11 @@ export async function GET() {
   try {
     const { userId } = await auth();
 
-    if (!userId)
+    if (!userId) {
+      db.authStore.clear();
+
       return Response.json({ error: "Unauthorized" }, { status: 401 });
+    }
 
     const clerkUser = await currentUser();
     const email = clerkUser?.emailAddresses[0]?.emailAddress;
@@ -28,7 +31,9 @@ export async function GET() {
         .collection("users")
         .getFirstListItem(`clerkId="${userId}"`);
     } catch {
-      if (!email)
+      if (!email) {
+        db.authStore.clear();
+
         return Response.json(
           {
             error:
@@ -36,6 +41,7 @@ export async function GET() {
           },
           { status: 500 },
         );
+      }
 
       user = await db.collection("users").create({
         clerkId: userId,
@@ -52,9 +58,15 @@ export async function GET() {
       .collection("users")
       .authWithPassword(user.clerkId, env.POCKETBASE_SERVER_PASSWORD);
 
+    const response = { token: authData.token, user: authData.record };
+
+    db.authStore.clear();
+
     // 5. Return PB token
-    return Response.json({ token: authData.token, user: authData.record });
+    return Response.json(response);
   } catch (err) {
+    db.authStore.clear();
+
     console.error(err);
     return Response.json({ error: "Unauthorized" }, { status: 401 });
   }

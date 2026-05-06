@@ -1,10 +1,19 @@
 "use client";
 
-import { createContext, useContext, useState, type MouseEvent } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  type MouseEvent,
+} from "react";
 import type { FullPerformance, ISeason } from ".";
 import type { FullVideo } from "./shared/videoList";
 import fetchSeason from "../_fetchSeason";
-import type { SeasonPerformanceCount } from "@/db";
+import db, {
+  type ConfluenceArtistHeaders,
+  type SeasonPerformanceCount,
+} from "@/db";
 
 interface VideoBrowserContext {
   expanded: number[];
@@ -23,6 +32,7 @@ interface VideoBrowserContext {
   toggleTab: (seasonId: number) => void;
   playerExpanded: boolean;
   setPlayerExpanded: React.Dispatch<React.SetStateAction<boolean>>;
+  artistHeaders: ConfluenceArtistHeaders[];
 }
 
 const videoBrowserContext = createContext<VideoBrowserContext | null>(null);
@@ -68,6 +78,22 @@ export const VideoBrowserProvider: React.FC<
   const [playingVideo, setPlayingVideo] =
     useState<VideoBrowserContext["playingVideo"]>();
   const [playerExpanded, setPlayerExpanded] = useState(false);
+  const [artistHeaders, setArtistHeaders] = useState<ConfluenceArtistHeaders[]>(
+    [],
+  );
+
+  useEffect(() => {
+    (async () => {
+      if (!selectedPerformance) return;
+
+      setArtistHeaders(
+        await db.collection("confluenceArtistHeaders").getFullList({
+          filter: `performance="${selectedPerformance.id}"`,
+          sort: "+beforeSong",
+        }),
+      );
+    })();
+  }, [selectedPerformance]);
 
   const toggleTab: VideoBrowserContext["toggleTab"] = (seasonId) => {
     setExpanded((newExpanded) => {
@@ -134,6 +160,7 @@ export const VideoBrowserProvider: React.FC<
         toggleTab,
         playerExpanded,
         setPlayerExpanded,
+        artistHeaders,
       }}
     >
       {children}

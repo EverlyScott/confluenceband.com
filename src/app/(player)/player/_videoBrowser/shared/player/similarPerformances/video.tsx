@@ -13,17 +13,34 @@ interface IProps {
 }
 
 const Video: React.FC<IProps> = ({ view, video, selected }) => {
-  const { setPlayingVideo } = useVideoBrowserState();
+  const { setPlayingVideo, artistHeaders } = useVideoBrowserState();
+
   const useCoverArt = useMemo(
     () =>
       (view === "queue" && video.expand?.performance?.hasCoverArt) ||
       video.noVideo,
     [video, view],
   );
+
   const [performance, song] = useMemo(
     () => [video.expand?.performance, video.expand?.song],
     [video],
   );
+
+  const artist = useMemo(() => {
+    if (view !== "queue") return;
+
+    if (artistHeaders.length < 1) return;
+
+    let newArtist = "";
+
+    for (const currentArtist of artistHeaders) {
+      if (currentArtist.beforeSong <= video.performanceOrder)
+        newArtist = currentArtist.artistName;
+    }
+
+    return newArtist;
+  }, [view, video, artistHeaders]);
 
   if (
     video.song === "full-performance" ||
@@ -58,6 +75,13 @@ const Video: React.FC<IProps> = ({ view, video, selected }) => {
             ? `${performance.name}${video.suffix === "" ? "" : ` (${video.suffix})`}`
             : `${video.performanceOrder}. ${song.title}${video.suffix === "" ? "" : ` (${video.suffix})`}`}
         </h3>
+        {view === "queue" && artist ? (
+          <p>
+            Performed By <strong>{artist}</strong>
+          </p>
+        ) : (
+          <></>
+        )}
         {view === "performances" &&
         performance.expand?.venue &&
         performance.expand.venue.name !== performance.name ? (

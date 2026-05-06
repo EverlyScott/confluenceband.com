@@ -17,6 +17,7 @@ export interface Geo {
 }
 
 export interface Collections {
+  confluenceArtistHeaders: ConfluenceArtistHeaders;
   confluenceSeasons: ConfluenceSeasons;
   confluencePerformances: ConfluencePerformances;
   confluenceVenues: ConfluenceVenues;
@@ -41,6 +42,13 @@ export interface ConfluenceMeta {
   id: string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   content: any;
+}
+
+export interface ConfluenceArtistHeaders {
+  id: string;
+  artistName: string;
+  beforeSong: number;
+  performance: string;
 }
 
 export interface ConfluenceSeasons {
@@ -77,10 +85,12 @@ export interface ConfluenceVideos {
   suffix: string;
   performance: string;
   performanceOrder: number;
+  displayedOrder: string;
   rootUrl: string;
   artists: Record<string, string[]> | null; // {instrument: artist}
   noVideo: boolean;
   noAudio: boolean;
+  isHidden: boolean;
 }
 
 export interface ConfluenceMembers {
