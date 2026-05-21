@@ -31,19 +31,19 @@ const Video: React.FC<IProps> = ({ video }) => {
         artistHeaders={artistHeaders}
       />
       <a className={styles.link} href="#performances" onClick={handleSetVideo}>
-        <div className={styles.container}>
-          <Image
-            src={`${video.rootUrl}${hasCoverArt ? "cover.avif" : "thumb.avif"}`}
-            width={hasCoverArt ? 3000 : 1280}
-            height={hasCoverArt ? 3000 : 720}
-            alt={`Thumbnail for ${video.expand?.song?.title}`}
-            className={styles.videoThumb}
-          />
-          <p>
-            {video.displayedOrder || video.performanceOrder}.{" "}
-            {video.expand?.song?.title}
-            {video.suffix ? ` (${video.suffix})` : ""}
-          </p>
+        <div
+          className={styles.container}
+          style={{
+            backgroundImage: `url("${video.rootUrl}${hasCoverArt ? "cover.avif" : "thumb.avif"}")`,
+          }}
+        >
+          <div className={styles.textContainer}>
+            <p>
+              {video.displayedOrder || video.performanceOrder}.{" "}
+              {video.expand?.song?.title}
+              {video.suffix ? ` (${video.suffix})` : ""}
+            </p>
+          </div>
         </div>
       </a>
     </>

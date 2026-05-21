@@ -2,7 +2,7 @@ import classNames from "classnames";
 import type { FullVideo } from "../../videoList";
 import styles from "./video.module.scss";
 import Image from "next/image";
-import { useMemo } from "react";
+import { useMemo, type RefObject } from "react";
 import moment from "moment";
 import useVideoBrowserState from "../../../context";
 
@@ -10,9 +10,10 @@ interface IProps {
   view: "performances" | "queue";
   video: FullVideo;
   selected: boolean;
+  ref?: RefObject<HTMLDivElement | null>;
 }
 
-const Video: React.FC<IProps> = ({ view, video, selected }) => {
+const Video: React.FC<IProps> = ({ view, video, selected, ref }) => {
   const { setPlayingVideo, artistHeaders } = useVideoBrowserState();
 
   const useCoverArt = useMemo(
@@ -61,6 +62,7 @@ const Video: React.FC<IProps> = ({ view, video, selected }) => {
         selected ? styles.selected : undefined,
       )}
       onClick={handleClick}
+      ref={ref}
     >
       <Image
         src={`${video.rootUrl}${useCoverArt ? "cover.avif" : "thumb.avif"}`}

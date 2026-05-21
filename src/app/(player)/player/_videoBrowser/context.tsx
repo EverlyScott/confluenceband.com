@@ -83,6 +83,8 @@ export const VideoBrowserProvider: React.FC<
   );
 
   useEffect(() => {
+    setArtistHeaders([]);
+
     (async () => {
       if (!selectedPerformance) return;
 

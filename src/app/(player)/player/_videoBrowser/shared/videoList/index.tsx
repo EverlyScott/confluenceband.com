@@ -4,6 +4,8 @@ import useVideoBrowserState from "../../context";
 import styles from "./index.module.scss";
 import Video from "./video";
 import FullPerformanceVideo from "./fullPerformanceVideo";
+import React, { useEffect, useRef, useState } from "react";
+import { Portal } from "@mui/material";
 
 export type FullVideo = Expand<
   ConfluenceVideos,
@@ -12,6 +14,13 @@ export type FullVideo = Expand<
 
 const VideoList: React.FC = () => {
   const { selectedPerformance } = useVideoBrowserState();
+  const [fullPerformanceBackground, setFullPerformanceBackground] =
+    useState<string>();
+  const portalRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    setFullPerformanceBackground(undefined);
+  }, [selectedPerformance]);
 
   if (selectedPerformance === undefined) {
     return <></>;
@@ -28,7 +37,21 @@ const VideoList: React.FC = () => {
   });
 
   return (
-    <div className={styles.container}>
+    <div
+      className={styles.container}
+      style={
+        {
+          "--bg-image": fullPerformanceBackground
+            ? `url("${fullPerformanceBackground}")`
+            : undefined,
+        } as React.CSSProperties
+      }
+    >
+      <div
+        className={styles.fullPerformanceContainer}
+        data-show={fullPerformanceBackground !== undefined ? "true" : "false"}
+        ref={portalRef}
+      />
       {selectedPerformance.performanceNote ? (
         <div
           style={{ textAlign: "center", padding: "0 1rem" }}
@@ -49,9 +72,14 @@ const VideoList: React.FC = () => {
             },
           };
 
-          if (fullVideo.expand?.song?.id === "full-performance") {
+          if (fullVideo.song === "full-performance") {
+            const backgroundUrl = `${fullVideo.rootUrl}${fullVideo.expand?.performance?.hasCoverArt ? "cover.avif" : "thumb.avif"}`;
+            if (fullPerformanceBackground !== backgroundUrl)
+              setFullPerformanceBackground(backgroundUrl);
             return (
-              <FullPerformanceVideo video={fullVideo} key={fullVideo.id} />
+              <Portal container={() => portalRef.current!} key={fullVideo.id}>
+                <FullPerformanceVideo video={fullVideo} key={fullVideo.id} />
+              </Portal>
             );
           }
 
@@ -61,7 +89,13 @@ const VideoList: React.FC = () => {
       {selectedPerformance.coverArtCredit === "" ? (
         <></>
       ) : (
-        <p style={{ textAlign: "center", fontSize: "1rem" }}>
+        <p
+          style={{
+            textAlign: "center",
+            fontSize: "1rem",
+            marginBottom: "16px",
+          }}
+        >
           Cover Art Taken By {selectedPerformance.coverArtCredit}
         </p>
       )}

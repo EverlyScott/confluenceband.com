@@ -105,9 +105,6 @@ const SongInfoDialog: React.FC<IProps> = ({ isOpen, setIsOpen }) => {
           <DialogContentHeader>Writer</DialogContentHeader>
           <DialogContentSub>{songInfo.writer}</DialogContentSub>
 
-          <DialogContentHeader>Producer</DialogContentHeader>
-          <DialogContentSub>{songInfo.producer}</DialogContentSub>
-
           {songInfo.originalCopyright ? (
             <DialogContentText sx={{ fontSize: "0.75rem" }}>
               &copy; {songInfo.originalCopyright}

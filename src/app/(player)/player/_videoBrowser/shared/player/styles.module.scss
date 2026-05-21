@@ -37,11 +37,26 @@
   }
 }
 
+// .playerBackground {
+//   background-color: rgba(0, 0, 0, 0.5);
+//   width: 100%;
+//   height: 77px;
+//   position: absolute;
+//   right: 0;
+//   bottom: 0;
+// }
+
 .player {
   width: 100%;
   display: flex;
-  background-color: #43246b;
+  background-color: rgba(67, 36, 107, 0.5);
   flex-direction: column;
+  transition: background-color 200ms;
+  backdrop-filter: blur(10px) brightness(50%);
+
+  &.expanded {
+    background-color: #43246b;
+  }
 }
 
 .scrub {

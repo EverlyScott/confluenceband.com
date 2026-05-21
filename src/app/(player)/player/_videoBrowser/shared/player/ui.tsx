@@ -262,7 +262,11 @@ const PlayerUI: React.FC<IProps> = (props) => {
         <ExpandedView {...{ ...props, player, isPaused, isFullscreen }} />
       </div>
 
-      <div className={styles.player}>
+      <div className={styles.playerBackground} />
+
+      <div
+        className={classNames(styles.player, playerExpanded && styles.expanded)}
+      >
         <Scrubber
           min={0}
           max={duration}
