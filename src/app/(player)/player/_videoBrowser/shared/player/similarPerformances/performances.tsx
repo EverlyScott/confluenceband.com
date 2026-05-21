@@ -24,17 +24,15 @@ const Performances: React.FC<IProps> = ({ view, performances }) => {
     return <></>;
   }
 
-  return performances.map((video) => {
-    return (
-      <Video
-        view={view}
-        video={video}
-        selected={playingVideo?.id === video.id}
-        ref={playingVideoRef}
-        key={video.id}
-      />
-    );
-  });
+  return performances.map((video) => (
+    <Video
+      view={view}
+      video={video}
+      selected={playingVideo?.id === video.id}
+      ref={playingVideo?.id === video.id ? playingVideoRef : undefined}
+      key={video.id}
+    />
+  ));
 };
 
 export default Performances;
