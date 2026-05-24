@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import useVideoBrowserState from "../../../context";
 import type { FullVideo } from "../../videoList";
 import Video from "./video";
+import { Skeleton } from "@mui/material";
 
 interface IProps {
   view: "performances" | "queue";
@@ -20,8 +21,22 @@ const Queue: React.FC<IProps> = ({ view, queue }) => {
       });
   }, [playingVideo]);
 
-  if (view !== "queue" || queue === undefined) {
+  if (view !== "queue") {
     return <></>;
+  }
+
+  if (queue === undefined) {
+    return new Array(12).fill("").map((_, i) => (
+      <Skeleton
+        variant="rectangular"
+        sx={{
+          borderRadius: "10px",
+          width: "100%",
+          minHeight: "72.25px",
+        }}
+        key={i}
+      />
+    ));
   }
 
   return queue.map((video) => (

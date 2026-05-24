@@ -13,6 +13,7 @@ const config = {
     ],
     imageSizes: [1024, 3000],
   },
+  allowedDevOrigins: ["192.168.4.52"],
 };
 
 export default config;
