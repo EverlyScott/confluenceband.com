@@ -40,6 +40,7 @@
 
   &[data-new="true"]:after {
     content: "New";
+    font-weight: bold;
     display: block;
     position: absolute;
     top: 4px;
